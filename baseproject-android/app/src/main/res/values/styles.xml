@@ -1,0 +1,58 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="MainBtn" parent="Theme.AppCompat.Light">
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ChWhiteText" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">@dimen/primary_text</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ChWhiteText.Big" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">@dimen/big_text</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ChWhiteText.Large" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">@dimen/large_text</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ChWhiteText.SuperLarge" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">@dimen/super_large_text</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ChWhiteText.Huge" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">@dimen/huge_text</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ChWhiteText.Small" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">@dimen/small_text</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ChWhiteText.ExtraSmall" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">@dimen/super_small_text</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>
