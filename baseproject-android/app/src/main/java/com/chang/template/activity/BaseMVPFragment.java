@@ -10,7 +10,7 @@ public abstract class BaseMVPFragment extends BaseFragment implements BaseView {
 
     private BasePresenter mPresenter;
 
-    public abstract void onBaseActivityCreated(Bundle savedInstanceState);
+    public abstract void onBaseActivityCreated();
 
     public void setPresenter(BasePresenter presenter) {
         mPresenter = presenter;
@@ -21,7 +21,7 @@ public abstract class BaseMVPFragment extends BaseFragment implements BaseView {
         super.onActivityCreated(savedInstanceState);
         if (mPresenter != null) {
             mPresenter.onActivityCreated();
-            onBaseActivityCreated(savedInstanceState);
+            onBaseActivityCreated();
         }
     }
 

@@ -1,7 +1,6 @@
 package com.chang.template.activity.home;
 
 import android.content.Context;
-import android.os.Bundle;
 
 import com.chang.template.R;
 import com.chang.template.activity.BaseMVPFragment;
@@ -25,7 +24,7 @@ public class MainMVPFragment extends BaseMVPFragment implements MainContract.Vie
     }
 
     @Override
-    public void onBaseActivityCreated(Bundle savedInstanceState) {
+    public void onBaseActivityCreated() {
 
     }
 
