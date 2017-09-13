@@ -18,13 +18,11 @@ import retrofit2.Response;
  */
 public abstract class BasePresenter {
 
-    public Context mContext;
+    public Context context;
     public BaseMVPFragment mView;
     public BaseModel mModel;
 
     public RxManager mRxManager = new RxManager();
-
-    protected Context context;
 
     public void onActivityCreated(){
 

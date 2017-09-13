@@ -23,7 +23,7 @@ public class MainPresenter extends MainContract.Presenter {
     @Inject
     MainPresenter(BaseActivity activity
             , MainContract.View view) {
-        mContext = activity;
+        context = activity;
         mView = view;
         mModel = new MainModel();
     }
@@ -36,7 +36,7 @@ public class MainPresenter extends MainContract.Presenter {
 
     @Override
     public void onActivityCreated() {
-        mView.initView(mContext);
+        mView.initView(context);
     }
 
     @Override
