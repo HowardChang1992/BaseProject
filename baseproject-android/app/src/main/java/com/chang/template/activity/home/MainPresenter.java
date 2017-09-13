@@ -43,6 +43,7 @@ public class MainPresenter extends MainContract.Presenter {
     public void performRequest() {
         mRxManager.add(mModel.performRequest(context)
                 .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(
                         new Consumer<Disposable>() {
                             @Override
@@ -50,13 +51,12 @@ public class MainPresenter extends MainContract.Presenter {
                                 mView.onRequestStart();
                             }
                         })
-                .doOnComplete(new Action() {
+                .doOnTerminate(new Action() {
                     @Override
                     public void run() throws Exception {
                         mView.onRequestEnd();
                     }
                 })
-                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         new Consumer<DemoResponse>() {
                             @Override
