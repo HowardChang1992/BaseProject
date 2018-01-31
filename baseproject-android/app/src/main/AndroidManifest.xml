@@ -11,6 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
 
+        <meta-data
+            android:name="com.chang.template.ui.CustomGlideModule"
+            android:value="GlideModule" />
+
         <activity android:name=".activity.home.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

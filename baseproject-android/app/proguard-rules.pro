@@ -23,3 +23,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keepnames class com.chang.template.ui.CustomGlideModule
+# or more generally:
+#-keep public class * extends com.bumptech.glide.module.AppGlideModule
