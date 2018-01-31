@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply from: 'base.gradle'
-apply plugin: 'com.neenbedankt.android-apt'
 
 buildscript {
     repositories {
@@ -8,8 +7,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'com.android.tools.build:gradle:3.0.1'
     }
 }
 
@@ -17,7 +15,9 @@ buildscript {
 android {
 
     compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    buildToolsVersion '26.0.2'
+    flavorDimensions "versionCode"
+
     defaultConfig {
         applicationId 'com.chang.template'
         minSdkVersion 16
@@ -45,9 +45,6 @@ android {
         }
     }
 
-    productFlavors {
-    }
-
 }
 
 dependencies {
@@ -70,7 +67,7 @@ dependencies {
 
     //View
     compile 'com.jakewharton:butterknife:8.4.0'
-    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.viewpagerindicator:library:2.4.1@aar'
     compile 'com.marshalchen.ultimaterecyclerview:library:0.7.2'
     compile 'com.afollestad.material-dialogs:commons:0.9.3.0'
@@ -92,7 +89,7 @@ dependencies {
     compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.8.2@aar'
 
     //dagger2
-    apt 'com.google.dagger:dagger-compiler:2.8'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.8'
     compile 'com.google.dagger:dagger:2.8'
     provided 'javax.annotation:jsr250-api:1.0'
 
