@@ -20,21 +20,7 @@ public class MyApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        initGlide(this);
     }
 
-    public static void initGlide(Context context) {
-        long maxMemory = Runtime.getRuntime().maxMemory();
-        long memoryCacheSize = maxMemory / 8;
-
-        GlideBuilder glideBuilder = new GlideBuilder();
-        glideBuilder.setMemoryCache(new LruResourceCache(memoryCacheSize));
-        glideBuilder.setBitmapPool(new LruBitmapPool(memoryCacheSize));
-
-        glideBuilder.setDefaultRequestOptions(new RequestOptions().format(DecodeFormat.PREFER_ARGB_8888));
-
-        Glide.init(context, glideBuilder);
-    }
 
 }
