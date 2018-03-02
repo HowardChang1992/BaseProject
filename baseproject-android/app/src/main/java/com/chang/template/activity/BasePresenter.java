@@ -1,6 +1,7 @@
 package com.chang.template.activity;
 
 
+import android.app.Activity;
 import android.content.Context;
 
 import com.chang.template.R;
@@ -19,6 +20,7 @@ import retrofit2.Response;
 public abstract class BasePresenter {
 
     public Context context;
+    public Activity activity;
     public BaseMVPFragment mView;
     public BaseModel mModel;
 

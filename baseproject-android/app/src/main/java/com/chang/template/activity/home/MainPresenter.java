@@ -24,6 +24,7 @@ public class MainPresenter extends MainContract.Presenter {
     MainPresenter(BaseActivity activity
             , MainContract.View view) {
         context = activity;
+        this.activity = activity;
         mView = view;
         mModel = new MainModel();
     }
