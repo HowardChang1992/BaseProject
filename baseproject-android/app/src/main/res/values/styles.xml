@@ -25,34 +25,28 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="ChWhiteText.Big" parent="@android:style/TextAppearance.Medium">
+    <style name="ChWhiteText.Big" parent="ChWhiteText">
         <item name="android:textSize">@dimen/big_text</item>
-        <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="ChWhiteText.Large" parent="@android:style/TextAppearance.Medium">
+    <style name="ChWhiteText.Large" parent="ChWhiteText">
         <item name="android:textSize">@dimen/large_text</item>
-        <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="ChWhiteText.SuperLarge" parent="@android:style/TextAppearance.Medium">
+    <style name="ChWhiteText.SuperLarge" parent="ChWhiteText">
         <item name="android:textSize">@dimen/super_large_text</item>
-        <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="ChWhiteText.Huge" parent="@android:style/TextAppearance.Medium">
+    <style name="ChWhiteText.Huge" parent="ChWhiteText">
         <item name="android:textSize">@dimen/huge_text</item>
-        <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="ChWhiteText.Small" parent="@android:style/TextAppearance.Medium">
+    <style name="ChWhiteText.Small" parent="ChWhiteText">
         <item name="android:textSize">@dimen/small_text</item>
-        <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="ChWhiteText.ExtraSmall" parent="@android:style/TextAppearance.Medium">
+    <style name="ChWhiteText.ExtraSmall" parent="ChWhiteText">
         <item name="android:textSize">@dimen/super_small_text</item>
-        <item name="android:textColor">@color/white</item>
     </style>
 
 </resources>
