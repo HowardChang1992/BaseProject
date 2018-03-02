@@ -21,6 +21,7 @@ public class ${presenterClass} extends ${contractClass}.Presenter {
     ${presenterClass}(BaseActivity activity
             , ${contractClass}.View view) {
         context = activity;
+        this.activity = activity;
         mView = view;
         mModel = new ${modelClass}();
     }
