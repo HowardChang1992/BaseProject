@@ -20,7 +20,7 @@ import retrofit2.Response;
 public abstract class BasePresenter {
 
     public Context context;
-    public Activity activity;
+    public BaseActivity activity;
     public BaseMVPFragment mView;
     public BaseModel mModel;
 
