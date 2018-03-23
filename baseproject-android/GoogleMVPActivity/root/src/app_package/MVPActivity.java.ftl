@@ -29,9 +29,6 @@ public class ${activityClass} extends BaseActivity {
     }
 
     private void initViews() {
-				
-	fragment = (${fragmentClass}) getSupportFragmentManager()
-                .findFragmentById(R.id.content_view);
 
         if (fragment == null) {
             fragment = ${fragmentClass}.newInstance();
