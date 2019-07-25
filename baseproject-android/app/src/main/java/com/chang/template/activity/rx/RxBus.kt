@@ -63,8 +63,10 @@ class RxBus private constructor() {
      * @param observable
      * @return
      */
-    fun unregister(tag: Any,
-                   observable: Observable<*>): RxBus {
+    fun unregister(
+            tag: Any,
+            observable: Observable<*>
+    ): RxBus {
         if (null == observable) {
             return getInstance()
         }
@@ -101,7 +103,7 @@ class RxBus private constructor() {
 
     companion object {
 
-        private  var instance = RxBus()
+        private var instance = RxBus()
 
         @Synchronized
         fun getInstance(): RxBus {

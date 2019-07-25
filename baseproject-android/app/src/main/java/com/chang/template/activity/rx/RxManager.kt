@@ -1,13 +1,11 @@
 package com.chang.template.activity.rx
 
-import java.util.HashMap
-import java.util.Objects
-
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Consumer
+import java.util.*
 
 
 /**
@@ -25,7 +23,8 @@ class RxManager {
         mObservables[eventName] = mObservable
         mCompositeDisposable
                 .add(mObservable.observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(consumer, Consumer { throwable -> throwable.printStackTrace() }))
+                        .subscribe(consumer, Consumer { throwable -> throwable.printStackTrace() })
+                )
     }
 
     fun add(m: Disposable) {
