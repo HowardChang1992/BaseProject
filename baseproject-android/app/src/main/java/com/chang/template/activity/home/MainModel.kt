@@ -7,4 +7,6 @@ import com.chang.template.activity.BaseModel
  */
 class MainModel : MainContract.Model, BaseModel{
 
+    override var mainData: MainData? = null
+    
 }

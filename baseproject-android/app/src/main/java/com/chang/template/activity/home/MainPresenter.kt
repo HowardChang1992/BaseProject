@@ -1,18 +1,15 @@
 package com.chang.template.activity.home
 
-import android.util.Log
 import com.chang.template.activity.BaseActivity
 import com.chang.template.activity.BaseMVPFragment
-import com.chang.template.activity.rx.RxBus
-import io.reactivex.Observable
-import java.util.*
-import java.util.concurrent.TimeUnit
 
 /**
  * Created by Howard Chang on 2017/4/18
  */
 class MainPresenter(activity: BaseActivity
-                    , mView: MainContract.View) : MainContract.Presenter() {
+                    , var mView: MainContract.View
+                    , var data: MainData
+) : MainContract.Presenter() {
 
     private var mModel: MainModel
 
@@ -20,6 +17,7 @@ class MainPresenter(activity: BaseActivity
         this.activity = activity
         this.context = activity
         mModel = MainModel()
+        mModel.mainData = data
         setView(mView as BaseMVPFragment, mModel)
     }
 

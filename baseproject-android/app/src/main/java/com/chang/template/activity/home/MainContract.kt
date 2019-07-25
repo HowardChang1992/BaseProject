@@ -13,6 +13,8 @@ interface MainContract {
 
     interface Model : BaseModel {
 
+        var mainData: MainData?
+        
     }
 
     interface View : BaseView {

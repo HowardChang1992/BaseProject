@@ -92,4 +92,8 @@ abstract class BaseActivity : AppCompatActivity() {
         return Gson().fromJson(key, type::class.java)
     }
 
+    companion object {
+        val DATA = "data"
+    }
+
 }
