@@ -1,13 +1,12 @@
-package ${packageName};
+package ${packageName}
 
-import android.content.Context;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import butterknife.BindVie
+import android.content.Context
+import android.os.Bundle
+import android.support.annotation.Nullable
 
-import ${applicationPackage}.R;
-import ${applicationPackage}.activity.BaseMVPFragment;
-import ${applicationPackage}.activity.BasePresenter;
+import ${applicationPackage}.R
+import ${applicationPackage}.activity.BaseMVPFragment
+import ${applicationPackage}.activity.BasePresenter
 
 
 class ${fragmentClass} : BaseMVPFragment(), ${contractClass}.View {

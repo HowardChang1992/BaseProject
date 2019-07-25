@@ -7,6 +7,8 @@
 	<global id="modelClass" value="${pageClass}Model" />
 	<global id="presenterClass" value="${pageClass}Presenter" />
 	<global id="componentClass" value="${pageClass}Component" />
+	<global id="dataClass" value="${pageClass}Data" />
+	<global id="dataParameter" value="${lowercasePageName}Data" />
 	
 	<global id="activityView" value="${activityToLayout(pageClass)}" />
 	<global id="fragmentView" value="fragment_${classToResource(pageClass)}" />

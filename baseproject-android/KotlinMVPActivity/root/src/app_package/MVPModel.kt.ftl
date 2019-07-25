@@ -1,9 +1,10 @@
-package ${packageName};
+package ${packageName}
 
-import android.content.Context;
-import ${applicationPackage}.activity.BaseModel;
+import ${applicationPackage}.activity.BaseModel
 
 
 class ${modelClass} : ${contractClass}.Model, BaseModel{
+
+    override var ${dataParameter}: ${dataClass}? = null
 
 }

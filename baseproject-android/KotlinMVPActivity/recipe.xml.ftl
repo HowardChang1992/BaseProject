@@ -15,6 +15,9 @@
 			 
     <instantiate from="root/src/app_package/MVPContract.kt.ftl"
              to="${escapeXmlAttribute(srcOut)}/${contractClass}.kt" />
+
+    <instantiate from="root/src/app_package/MVPData.kt.ftl"
+             to="${escapeXmlAttribute(srcOut)}/${dataClass}.kt" />
 			 
     <instantiate from="root/src/app_package/MVPFragment.kt.ftl"
              to="${escapeXmlAttribute(srcOut)}/${fragmentClass}.kt" />

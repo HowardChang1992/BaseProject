@@ -1,16 +1,18 @@
-package ${packageName};
+package ${packageName}
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
+import android.app.Activity
+import android.content.Intent
+import android.os.Bundle
 
-import ${applicationPackage}.R;
-import ${applicationPackage}.activity.BaseActivity;
+import ${applicationPackage}.R
+import ${applicationPackage}.activity.BaseActivity
 import ${applicationPackage}.utils.replaceFragmentInActivity
+import java.io.Serializable
 
 class ${activityClass} : BaseActivity() {
 
     private lateinit var fragment: ${fragmentClass}
+    private lateinit var data: ${dataClass}
 
     override val contentView: Int
         get() = R.layout.${activityView}
@@ -20,6 +22,10 @@ class ${activityClass} : BaseActivity() {
         initViews()
     }
 
+    private fun getData() {
+        data = intent.getSerializableExtra(DATA) as ${dataClass}
+    }
+
     private fun initViews() {
 
         fragment = supportFragmentManager.findFragmentById(R.id.content_view) as ${fragmentClass}?
@@ -27,15 +33,17 @@ class ${activityClass} : BaseActivity() {
                     replaceFragmentInActivity(it, R.id.content_view)
                 }
 
-        ${presenterClass}(this, fragment)
+        ${presenterClass}(this, fragment ,data)
+
     }
 
 	
     companion object {
 
         fun launch(activity: Activity) {
-            var intent = Intent(activity, TestActivity::class.java)
-            activity.startActivity(intent)
+            Intent(activity, ${activityClass}::class.java)
+                .apply { putExtra(DATA, ${dataClass}() as Serializable) }
+                .apply { activity.startActivity(this) }
         }
         
     }

@@ -1,10 +1,11 @@
-package ${packageName};
+package ${packageName}
 
-import ${applicationPackage}.activity.BaseActivity;
-import ${applicationPackage}.activity.BaseMVPFragment;
+import ${applicationPackage}.activity.BaseActivity
+import ${applicationPackage}.activity.BaseMVPFragment
 
 class ${presenterClass}(activity: BaseActivity
-                    , mView: ${contractClass}.View) : ${contractClass}.Presenter() {
+                    ,var mView: ${contractClass}.View
+                    ,var data: ${dataClass}) : ${contractClass}.Presenter() {
 
     private var mModel: ${modelClass}
 
@@ -12,6 +13,7 @@ class ${presenterClass}(activity: BaseActivity
         this.activity = activity
         this.context = activity
         mModel = ${modelClass}()
+        mModel.${dataParameter} = data
         setView(mView as BaseMVPFragment, mModel)
     }
 
