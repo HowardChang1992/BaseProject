@@ -24,7 +24,11 @@ class ${activityClass} : BaseActivity() {
     }
 
     private fun getData() {
-        data = intent.getSerializableExtra(DATA) as ${dataClass}
+        data = if (intent.getSerializableExtra(DATA) != null) {
+                    intent.getSerializableExtra(DATA) as ${dataClass}
+                } else {
+                    ${dataClass}()
+                }
     }
 
     private fun initViews() {

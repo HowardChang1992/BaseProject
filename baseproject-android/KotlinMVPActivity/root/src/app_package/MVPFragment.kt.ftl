@@ -21,10 +21,6 @@ class ${fragmentClass} : BaseMVPFragment(), ${contractClass}.View {
         mPresenter = presenter as ${contractClass}.Presenter
     }
 
-    override fun onBaseActivityCreated() {
-
-    }
-
     override fun initView(context: Context) {
 
     }

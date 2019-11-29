@@ -17,8 +17,8 @@ class ${presenterClass}(activity: BaseActivity
         setView(mView as BaseMVPFragment, mModel)
     }
 
-    override fun onActivityCreated() {
-
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+            super.onActivityCreated(savedInstanceState)
     }
 
     override fun performRequest() {
