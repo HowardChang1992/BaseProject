@@ -13,7 +13,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
-import kotlin.reflect.KClass
 
 /**
  * Created by Howard Chang on 2016/12/7
@@ -57,12 +56,12 @@ class Networks {
             val loggingIntercept = Interceptor { chain ->
                 val request = chain.request()
                 val response = chain.proceed(request)
-                val responseBody = response.body()
-                val source = responseBody!!.source()
-                source.request(java.lang.Long.MAX_VALUE) // Buffer the entire body.
-                val buffer = source.buffer()
+                val responseBody = response.body
+                val source = responseBody?.source()
+                source?.request(java.lang.Long.MAX_VALUE) // Buffer the entire body.
+                val buffer = source?.buffer
                 val UTF8 = Charset.forName("UTF-8")
-                Log.i("REQUEST_JSON", buffer.clone().readString(UTF8))
+                Log.i("REQUEST_JSON", buffer?.clone()?.readString(UTF8))
                 Log.i("REQUEST_URL", request.toString())
                 response
             }
@@ -81,17 +80,21 @@ class Networks {
         private lateinit var context: Context
 
         private lateinit var retrofit: Retrofit
-        private lateinit var mNetworks: Networks
+        private var mNetworks: Networks? = null
 
         private var backendAPI: BackendAPI? = null
 
-        fun getInstance(context: Context): Networks {
+        fun getInstance(mContext: Context): Networks {
+
             if (mNetworks == null) {
                 mNetworks = Networks()
             }
-            Networks.context = context
 
-            return mNetworks
+            mNetworks?.apply {
+                context = mContext
+            }
+
+            return mNetworks!!
         }
     }
 }

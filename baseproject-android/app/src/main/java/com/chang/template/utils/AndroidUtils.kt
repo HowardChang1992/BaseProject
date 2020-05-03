@@ -33,7 +33,6 @@ class AndroidUtils {
         fun getScreenSizeStr(activity: Activity): String {
             val displaymetrics = DisplayMetrics()
             if (Build.VERSION.SDK_INT >= 17) {
-                activity.windowManager.defaultDisplay.getRealMetrics(displaymetrics)
             } else {
                 activity.windowManager.defaultDisplay.getMetrics(displaymetrics)
             }

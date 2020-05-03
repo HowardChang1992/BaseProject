@@ -3,7 +3,7 @@ package com.chang.template.activity
 /**
  * Created by Howard Chang on 2016/11/29
  */
-interface BaseView{
+interface BaseView {
     fun onRequestStart()
 
     fun onRequestError(msg: String)

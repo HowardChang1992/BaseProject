@@ -3,11 +3,9 @@ package com.chang.template.activity.home
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-
 import com.chang.template.R
 import com.chang.template.activity.BaseActivity
 import com.chang.template.utils.replaceFragmentInActivity
-import com.google.gson.Gson
 import java.io.Serializable
 
 class MainActivity : BaseActivity() {

@@ -2,8 +2,6 @@ package com.chang.template.activity
 
 
 import android.content.Context
-import android.util.Log
-
 import com.chang.template.activity.rx.RxManager
 
 

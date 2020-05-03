@@ -1,7 +1,6 @@
 package com.chang.template.activity
 
 import android.os.Bundle
-import android.util.Log
 
 /**
  * Created by Howard Chang on 2016/11/29

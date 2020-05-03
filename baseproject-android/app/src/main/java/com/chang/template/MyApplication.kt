@@ -1,7 +1,7 @@
 package com.chang.template
 
 import android.content.Context
-import android.support.multidex.MultiDexApplication
+import androidx.multidex.MultiDexApplication
 
 import com.bumptech.glide.Glide
 import com.bumptech.glide.GlideBuilder
@@ -16,10 +16,8 @@ import com.bumptech.glide.request.RequestOptions
  */
 class MyApplication : MultiDexApplication() {
 
-
     override fun onCreate() {
         super.onCreate()
     }
-
 
 }

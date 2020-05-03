@@ -6,29 +6,21 @@ import android.app.ProgressDialog
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
-import android.content.pm.ResolveInfo
 import android.content.res.Resources
-import android.content.res.TypedArray
 import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.net.Uri
 import android.os.Build
 import android.provider.Settings
 import android.view.Window
-
-import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
 import com.chang.template.R
-
 import java.io.UnsupportedEncodingException
 import java.net.URLEncoder
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.UUID
-import java.util.regex.Matcher
+import java.util.*
 import java.util.regex.Pattern
 
 /**
@@ -138,12 +130,14 @@ object Utility {
     }
 
     fun confirmExitApp(activity: Activity) {
-        MaterialDialog.Builder(activity)
-                .title(R.string.app_name)
-                .content(R.string.g_a_exit)
-                .positiveText(R.string.g_close)
-                .negativeText(R.string.g_cancel)
-                .onPositive { dialog, which -> activity.finish() }.show()
+        MaterialDialog(activity).show {
+            title(R.string.app_name)
+            message(R.string.g_a_exit)
+            positiveButton(R.string.g_close) {
+                activity.finish()
+            }
+            negativeButton(R.string.g_cancel)
+        }
     }
 
     fun getStatusBarHeight(context: Context): Int {
