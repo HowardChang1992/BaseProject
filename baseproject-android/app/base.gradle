@@ -21,7 +21,7 @@ def getCommitCount() {
 }
 
 def getSuffix() {
-    def suffix = "-" + getCommitCount() + "-" + getCommitSha();
+    def suffix = "${getCommitCount()}-${getCommitSha()}"
 
     return suffix
 }
@@ -95,6 +95,6 @@ android.applicationVariants.all { variant ->
     }
 
     variant.outputs.all { output ->
-        outputFileName = "${android.defaultConfig.getVersionName()} + ${getSuffix()}.apk"
+        outputFileName = "${android.defaultConfig.getVersionName()}-${getSuffix()}.apk"
     }
 }
