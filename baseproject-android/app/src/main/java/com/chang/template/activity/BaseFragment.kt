@@ -9,6 +9,7 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import com.afollestad.materialdialogs.MaterialDialog
 import com.chang.template.R
+import com.chang.template.activity.home.MainFragment
 import com.chang.template.utils.Utility
 
 /**
@@ -81,4 +82,7 @@ abstract class BaseFragment : Fragment(), BaseView {
         }
     }
 
+    companion object {
+        const val DATA = "fragment_data"
+    }
 }

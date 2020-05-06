@@ -8,7 +8,6 @@ import com.chang.template.BuildConfig
  */
 object GlobalConstant {
 
-
     var WEB_SERVICES_TIMEOUT_SEC: Long = 0
     private val WEB_SERVICES_TIMEOUT_FORMAL_SEC: Long = 20
     private val WEB_SERVICES_TIMEOUT_DEV_SEC: Long = 60

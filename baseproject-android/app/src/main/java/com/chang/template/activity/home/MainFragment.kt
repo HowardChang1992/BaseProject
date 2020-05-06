@@ -1,38 +1,42 @@
 package com.chang.template.activity.home
 
-import android.content.Context
+import android.os.Bundle
 import com.chang.template.R
-import com.chang.template.activity.BaseMVPFragment
-import com.chang.template.activity.BasePresenter
+import com.chang.template.activity.BaseMVVMFragment
+import com.chang.template.databinding.FragmentMainBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * Created by Howard Chang on 2017/4/18
  */
-class MainFragment : BaseMVPFragment(), MainContract.View {
+class MainFragment : BaseMVVMFragment<FragmentMainBinding>() {
 
-    private lateinit var mPresenter: MainContract.Presenter
+    override lateinit var binding: FragmentMainBinding
+    override val viewModel: MainViewModel by viewModel()
 
     override val contentView: Int
         get() = R.layout.fragment_main
 
-    override fun setPresenter(presenter: BasePresenter) {
-        super.setPresenter(presenter)
-        mPresenter = presenter as MainContract.Presenter
+    override fun bindingViewModel() {
+        binding.viewModel = viewModel
+        viewModel.initData(arguments?.getSerializable(DATA))
     }
 
-    override fun onBaseActivityCreated() {
+    override fun initView() {
 
     }
 
-    override fun initView(context: Context) {
+    override fun initViewModelObservers() {
 
     }
 
     companion object {
-
-        fun newInstance(): MainFragment {
-            return MainFragment()
-        }
+        fun newInstance(data: MainData) =
+                MainFragment().apply {
+                    arguments = Bundle().apply {
+                        putSerializable(DATA, data)
+                    }
+                }
     }
 
 }

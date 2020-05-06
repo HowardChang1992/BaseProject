@@ -23,17 +23,19 @@ class MainActivity : BaseActivity() {
     }
 
     private fun getData() {
-        data = intent.getSerializableExtra(DATA) as MainData
+        data = if (intent.getSerializableExtra(DATA) != null) {
+            intent.getSerializableExtra(DATA) as MainData
+        } else {
+            MainData()
+        }
     }
 
     private fun initViews() {
 
         mainFragment = supportFragmentManager.findFragmentById(R.id.content_view) as MainFragment?
-                ?: MainFragment.newInstance().also {
+                ?: MainFragment.newInstance(data).also {
                     replaceFragmentInActivity(it, R.id.content_view)
                 }
-
-        MainPresenter(this, mainFragment, data)
 
     }
 

@@ -6,7 +6,7 @@ import retrofit2.http.POST
 /**
  * Created by Howard on 2016/7/14
  */
-interface BackendAPI {
+interface BackendApiRepository {
 
     @POST("demo/api")
     fun baseApi(): Observable<Any>

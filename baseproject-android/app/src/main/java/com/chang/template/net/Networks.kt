@@ -19,12 +19,14 @@ import java.util.concurrent.TimeUnit
  */
 class Networks {
 
-    fun getBackendAPI(): BackendAPI {
-        return backendAPI ?: configRetrofit(BackendAPI::class.java)
+    private var backendApiRepository: BackendApiRepository? = null
+
+    fun getBackendAPIRepository(): BackendApiRepository {
+        return backendApiRepository ?: configRetrofit(BackendApiRepository::class.java)
     }
 
     private fun <T : Any> configRetrofit(service: Class<T>): T {
-        retrofit = Retrofit.Builder()
+        val retrofit = Retrofit.Builder()
                 .baseUrl(GlobalConstant.BACKEND_API_URL)
                 .client(configClient())
                 .addConverterFactory(GsonConverterFactory.create())
@@ -61,7 +63,13 @@ class Networks {
                 source?.request(java.lang.Long.MAX_VALUE) // Buffer the entire body.
                 val buffer = source?.buffer
                 val UTF8 = Charset.forName("UTF-8")
-                Log.i("REQUEST_JSON", buffer?.clone()?.readString(UTF8))
+
+                var requestJson = ""
+                buffer?.apply {
+                    requestJson = this.clone().readString(UTF8)
+                }
+
+                Log.i("REQUEST_JSON", requestJson)
                 Log.i("REQUEST_URL", request.toString())
                 response
             }
@@ -77,24 +85,18 @@ class Networks {
 
     companion object {
 
+        @Volatile
+        private var mNetworks: Networks? = null
         private lateinit var context: Context
 
-        private lateinit var retrofit: Retrofit
-        private var mNetworks: Networks? = null
+        fun getInstance(mContext: Context) =
+                mNetworks ?: synchronized(Networks::class.java) {
+                    mNetworks.apply {
+                        context = mContext
+                    } ?: Networks().apply {
+                        context = mContext
+                    }
+                }
 
-        private var backendAPI: BackendAPI? = null
-
-        fun getInstance(mContext: Context): Networks {
-
-            if (mNetworks == null) {
-                mNetworks = Networks()
-            }
-
-            mNetworks?.apply {
-                context = mContext
-            }
-
-            return mNetworks!!
-        }
     }
 }
