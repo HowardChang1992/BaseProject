@@ -6,6 +6,7 @@ import android.util.Log
 import com.chang.template.BuildConfig
 import com.chang.template.cache.GlobalConstant
 import com.chang.template.utils.AndroidUtils
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -54,7 +55,7 @@ class Networks {
             chain.proceed(request)
         }
 
-        if (BuildConfig.DEBUG) {
+        if (BuildConfig.FLAVOR.toLowerCase() != "publish") {
             val loggingIntercept = Interceptor { chain ->
                 val request = chain.request()
                 val response = chain.proceed(request)
@@ -74,6 +75,7 @@ class Networks {
                 response
             }
             okHttpClient.addInterceptor(loggingIntercept)
+            okHttpClient.addNetworkInterceptor(StethoInterceptor())
         }
 
         okHttpClient.connectTimeout(GlobalConstant.WEB_SERVICES_TIMEOUT_SEC, TimeUnit.SECONDS)
