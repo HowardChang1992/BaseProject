@@ -21,7 +21,7 @@ def getCommitCount() {
 }
 
 def getSuffix() {
-    def suffix = "${getCommitCount()}-${getCommitSha()}"
+    def suffix = "-${getCommitCount()}-${getCommitSha()}"
 
     return suffix
 }
@@ -48,28 +48,49 @@ android {
                 keyPassword "$project.keyPassword"
             }
         }
+
+        debug {
+            if (project.hasProperty("storeFileDev")) {
+                storeFile file("$project.storeFileDev")
+                storePassword "$project.storePasswordDev"
+                keyAlias "$project.keyAliasDev"
+                keyPassword "$project.keyPasswordDev"
+            }
+        }
+
+        dev {
+            if (project.hasProperty("storeFileDev")) {
+                storeFile file("$project.storeFileDev")
+                storePassword "$project.storePasswordDev"
+                keyAlias "$project.keyAliasDev"
+                keyPassword "$project.keyPasswordDev"
+            }
+        }
     }
 
     productFlavors {
         local {
             buildConfigField "boolean", "REPORT_CRASHS", "false"
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "false"]
         }
 
         publish {
             buildConfigField "boolean", "REPORT_CRASHS", "true"
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
         }
     }
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
 
         debug {
-            minifyEnabled true
+            minifyEnabled false
             shrinkResources false
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             zipAlignEnabled false
             versionNameSuffix suffix
@@ -78,7 +99,7 @@ android {
         dev {
             minifyEnabled false
             debuggable true
-            signingConfig android.signingConfigs.debug
+            signingConfig signingConfigs.dev
             zipAlignEnabled false
             versionNameSuffix suffix
         }
